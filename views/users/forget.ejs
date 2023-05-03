@@ -1,0 +1,38 @@
+<% include('../layouts/header.ejs') %>
+<style>
+    * {
+        margin: 0;padding: 0;box-sizing: border-box;
+    }
+    input[type=email] {
+        padding: 5px 10px;margin: 8px 20px;box-sizing: border-box;
+        border: 1px solid #ccc;border-radius: 10px;
+        -webkit-transition: 0.5s;transition: 0.2s;outline: none;
+    }
+    input[type=email]:focus {
+        border: 3px solid #2294ed;
+    }
+    .primary-button {
+        color: white !important;font-weight: 700;background-color: #2294ed;
+        border-radius: 6px;border: none;
+        padding: 8px 8px;box-shadow: 0 0 2px var #577592;
+cursor: pointer;margin-left: 20px;
+    }
+    .primary-button:hover {
+        background-color: #1d69a3;
+    }
+</style>
+<div style="background-color: #4fb3d4;">
+  <a href="#"><img src="https://assets-global.website-files.com/5af97a9c84ec1bc79d81b5f4/5dc9062fc19d430f6909ced7_UHLogo_standard.png" width="250px" height="50px" alt="logo with company's name">
+  </a>
+  </div>
+<% if(typeof message !== 'undefined'){
+    %>
+     <h4><%= message %></h4>
+    <%
+  }%>
+<br>
+<form action="/forget" method="post">
+    <input type="email" name="email" required placeholder="Enter email">
+    <br>
+    <input class="primary-button" type="submit" value="Send Reset Link"></form>
+<% include('../layouts/footer.ejs') %>

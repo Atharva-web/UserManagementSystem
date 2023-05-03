@@ -1,0 +1,73 @@
+<% include('../layouts/header.ejs') %>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    input[type=text] {
+        padding: 8px 20px; margin: 8px 0; box-sizing: border-box;
+        border: 1px solid #ccc; border-radius: 10px;
+        -webkit-transition: 0.5s;transition: 0.2s; outline: none;
+    }
+    input[type=text]:focus {
+    border: 3px solid #2294ed;
+    }
+    input[type=email] {
+    padding: 8px 20px; margin: 8px 0; box-sizing: border-box;
+    border: 1px solid #ccc; border-radius: 10px;
+    -webkit-transition: 0.5s; transition: 0.2s; outline: none;
+    }
+    input[type=email]:focus {
+    border: 3px solid #2294ed;
+    }
+    input[type=password] {
+    padding: 8px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    -webkit-transition: 0.5s;
+    transition: 0.3s;
+    outline: none;
+    }
+    input[type=password]:focus {
+    border: 3px solid #2294ed;
+    }
+    .primary-button {
+        color: white !important;
+        font-weight: 700;
+        background-color: #2294ed;
+        border-radius: 6px;
+        border: none;
+        padding: 8px 24px;
+        box-shadow: 0 0 2px var #577592;
+        cursor: pointer;
+    }
+    .primary-button:hover {
+        background-color: #1d69a3;
+        transition: 0.2s ease-out;
+    }
+    #pfp {
+        border-radius: 50%;
+    }
+</style>
+<br>
+<center>
+<img src="userImages/<%= user.image %>" id="pfp" width="100px" height="100px" alt="<%= user.image %>">
+<br><br>
+<form action="" method="POST" enctype="multipart/form-data">
+    <input style="margin-left: 75px;" type="file" name="image">
+    <br>
+    <input type="hidden" name="user_id" value="<%= user._id %>">
+    <br>
+    <input type="text" name="name" value="<%= user.name %>" placeholder="Enter Name" required>
+    <br>
+    <input type="email" name="email" value="<%= user.email %>" placeholder="Enter Email" required>
+    <br>
+   <input type="text" name="mno" value="<%= user.mobile %>" placeholder="Enter Mobile" required>
+    <br><br>
+    <input class="primary-button" type="submit" value="Update Profile">
+</form>
+</center>
+<% include('../layouts/footer.ejs') %>

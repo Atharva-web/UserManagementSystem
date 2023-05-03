@@ -1,0 +1,75 @@
+<% include('../layouts/header.ejs') %>
+<title><%= user.name %></title>
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .primary-button {
+        color: white !important;
+        text-decoration: none;
+        background-color: #2294ed;
+        border-radius: 3px;
+        border: none;
+        padding: 5px 5px;
+        box-shadow: 0 0 2px var #577592;
+        cursor: pointer;
+    }
+    .primary-button:hover {
+        background-color: #1d69a3;
+        transition: 0.2s ease-out;
+    }
+    .btn {
+        position: relative;
+        left: 800px;
+        top: -35px;
+    }
+    table{
+        text-align: center;
+    }
+    .center {
+    margin-left: auto;
+    margin-right: auto;
+    }
+    #pfp {
+        border-radius: 50%;
+    }
+    .heading {
+        font-family:cursive;
+    }
+
+    #details {
+        display: flex;
+        justify-content: center;
+    }
+    .top-banner {
+        background-color: #4fb3d4;
+    }
+
+</style>
+<div class="top-banner">
+    <a href="#">
+<img src="https://assets-global.website-files.com/5af97a9c84ec1bc79d81b5f4/5dc9062fc19d430f6909ced7_UHLogo_standard.png" width="250px" height="50px" alt="">
+</a>
+</div>
+<a class="primary-button btn" href="/logout">Logout</a>
+<center>
+    <h2 class="heading" style="color: #0c5c77;">User Profile</h2>
+</center>
+<br>
+<center>
+    <img id="pfp" src="userImages/<%= user.image %>" width="100px" height="100px" alt="<%= user.image %>">
+</center>
+
+<br>
+<div id="details">
+<pre style="color: #266d85;" class="heading">
+Name: <%= user.name %> <br>
+Email: <%= user.email %> <br>
+Mobile: <%= user.mobile %> <br>
+Verified: <% if(user.is_verified == 1) {%>Yes<%}%> 
+<center><a class="primary-button edit-btn" style="margin-left: 20px;" href="/edit?id=<%= user._id %>">Edit</a></center>
+</pre>    
+</div>
+<% include('../layouts/footer.ejs') %>
