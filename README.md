@@ -1,3 +1,3 @@
 # USerManagementSystem
 
-please add node_modules folder by install express and other dependencies
+please add node_modules folder by installing express and other dependencies
